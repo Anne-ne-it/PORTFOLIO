@@ -1,0 +1,71 @@
+/* Reset CSS */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-top: 100px;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center;     /* Centrado vertical */
+  min-height: 100vh;       /* Altura total de la pantalla */
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 80px; /* Crea el hueco de seguridad para el footer */
+}
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+a {
+  color: #1f2a33;  /* Color del texto */
+  text-decoration: none;  /* Quita el subrayado azul */
+  font-family: "Roboto", sans-serif;  /*Tipografía*/
+  }
+  a:hover {
+  text-decoration: none;
+  cursor: pointer;  /* Convierte el raton es una mano */
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}

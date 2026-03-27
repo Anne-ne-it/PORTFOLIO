@@ -1,0 +1,226 @@
+/* Import Google Fonts - Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root {
+  /* --- Colores principales --- */
+  --texto-principal: #1f2a33; /* texto oscuro legible */
+  --gris-oscuro: #4a4a4a;     /* textos secundarios */
+  --gris-medio: #9b9b9b;      /* detalles */
+  --gris-claro: #e0e0e0;      /* fondos suaves */
+  --blanco-humo: #f9f9f9;     /* fondo principal */
+  --amarillo: #FFCE1B; /*detalles*/
+  --azul: rgb(37, 193, 221); /*detalles*/
+  /* --- Extras --- */
+  --borde-suave: #cfe7f2;     /* bordes ligeros */
+  --sombra: rgba(0, 0, 0, 0.12); /* sombras suaves */
+   /* --- Variables de Tipografía Roboto --- */ 
+  --font-light: 300; 
+  --font-regular: 400; 
+  --font-medium: 500; 
+  --font-bold: 700; 
+  --font-black: 900; 
+  --font-main: 'Roboto', sans-serif;/*Fuente principal */ 
+}
+
+
+/*MENÚ - NAVEGACIÓN*/
+.menu-navegacion {
+  display: flex;  /*pone los elementos uno junto al otro*/
+  justify-content: space-between; /* Empuja el logo a un lado y el ul al otro */
+  align-items: center;  /* Los centra verticalmente */
+  flex-direction: row-reverse;   /* ¡MAGIA! Pone el logo a la derecha y el menú a la izquierda */
+  padding: 10px 5%; /* Menú estrecho */
+  background-color: #f9f9f9; /*color de fondo del menu*/
+  border-bottom: 1px solid #cfe7f2; /*color del borde de la caja del menu*/
+  border-radius: 4px; /*redondeo de las esquinas*/
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); /*sombreado de la caja menu*/
+  position: fixed; /* Para "anclarlo" a la pantalla */
+  top: 0; /*para alinearla al borde superior*/
+  width: 100%; /*ancho del tamaño maximo*/
+  z-index: 1000; /*para que quede superpuesto al resto de elementos*/
+}
+
+.menu-navegacion ul {
+  display: flex; /*pone los elementos uno junto al otro*/
+  list-style: none; /*quitar decoracion de la lista*/
+  margin: 0; /*quitamos margenes*/
+  padding: 0; /*quitamos margenes*/
+  gap: 15px; /*distancia entre los items*/
+}
+
+.menu-navegacion li {
+  position: relative; /*para posicionar la linea respecto al texto*/
+  display: inline-block;  /*Colocar elementos uno al lado del otro, con control de tamaño */
+  color: #1f2a33;  /* Color del texto */
+  text-decoration: none;  /* Quita el subrayado azul */
+  padding: 4px 10px;  /* Crea el área clickeable */
+  font-family: "Roboto", sans-serif;  /*Tipografía*/
+  font-size: 20px;  /*Tamaño de fuente */
+}
+
+.menu-navegacion li a {
+  position: relative; /*para posicionar la linea respecto al texto*/
+}
+
+.menu-navegacion li a::after {
+  content: ""; /*para crear una caja invisible y vacia*/
+  position: absolute; /*para separar las lineas del texto*/
+  left: 0; /*eje horizontal, alineado izquierda*/
+  bottom: -4px; /* Aquí la SEPARACIÓN con el texto */
+  width: 0;  /* Empieza sin ancho para que no se vea */
+  height: 3px; /* Grosor de la línea */
+  background-color: #FFCE1B; /* color amarillo */
+  transition: width 0.5s ease-in-out; /* La animación */
+}
+
+.menu-navegacion li a:hover::after {
+  width: 100%; /* Al pasar el ratón, la línea crece hasta el 100% */
+}
+
+.logo {
+  text-decoration: none; /*para quitar subrayads o decoración ya establecida*/
+  color: rgb(37, 193, 221); /*color del texto*/
+  font-family: "Roboto", sans-serif; /*tipografía*/
+  font-size: 20px; /*tamaño del texo*/
+  font-weight: bold; /*para resaltar el texto tipo negrita*/
+  padding: 5px 10px; /*margenes*/
+  border: 2px solid rgb(37, 193, 221); /* Un pequeño recuadro para el logo */
+  border-radius: 4px; /*borde del cuadro*/
+  transition: all 0.5s ease; /*tiempo de la animación*/
+}
+
+.logo:hover {
+  background-color: rgb(37, 193, 221); /*color de fondo al pasar el raton*/
+  color: #f9f9f9; /*color del texto al pasar el raton*/
+}
+
+
+
+
+/*MENU DESPLEGABLE HAMBURGUESA*/
+#menu-desplegable-burger {
+  display: none !important;  /* Oculta el checkbox */
+}
+
+/* Contenedor de las rayitas */
+.burger {
+  display: flex;  /* Pone los elementos uno al lado del otro */
+  flex-direction: column;  /* Pone los elementos uno sobre otro */
+  width: 40px;  /* Define el ancho horizontal del elemento */
+  gap: 3px; /* Espacio entre rayitas */
+  padding: 10px; /*espacio arriba y abajo del menu*/
+}
+
+/* Estilo de cada rayita */
+.burger span {
+  background-color: black; /* Color de la linea usando mis variables de grises */
+  height: 4px;  /* Determina el grosor (altura) de cada una de las tres rayitas */
+  width: 100%;  /* Hace que la rayita ocupe todo el ancho disponible del contenedor padre */
+  border-radius: 10px;  /* Redondea los extremos de las rayitas para que no se vean como rectángulos secos */
+  transition: all 0.3s ease; /* Para que sea suave*/
+  transform-origin: left; /*para que empiece desde la izquierda*/
+}
+
+/*ocultar el menu burger*/
+.links-burger {
+  display: none; /*se oculta por defecto*/
+  flex-direction: column; /*pone los elementos uno sobre otro*/
+  background-color: #f9f9f9; /*color del fondo*/
+  position: absolute; /*para separar las lineas del texto*/
+  top: 70px; /*distancia arriba*/
+  left: 20px; /*distancia abajo*/
+  border: 1px solid #cfe7f2; /*linea borde caja*/
+  border-radius: 7px; /*radio de redondeo*/
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); /*sombra de la caja*/
+  padding: 10px; /*distancia arriba y abajo*/
+  z-index: 100; /* Para que flote sobre el contenido */
+}
+
+.links-burger a {
+  text-decoration: none; /*quita las ajustes por defecto de los links*/
+  color: #1f2a33; /*color del texto*/
+  padding: 10px 20px; /*distancia arriba y abajo*/
+  font-family: "Roboto", sans-serif; /*tipografía*/
+  font-size: 14px; /*tamaño fuente*/
+}
+
+.links-burger a:hover {
+  background-color: #e0e0e0; /*color de fondo*/
+}
+
+/*EL TRUCO, cuando el checkbox está marcado, muestra el menú*/
+#menu-desplegable-burger:checked ~ .menu-links {
+  display: flex !important; /* El !important ayuda a descartar otros errores de prioridad */
+}
+
+
+
+/*FONDOS DE PANTALLA*/
+body.home {
+  background-image: url(https://res.cloudinary.com/dclogxnep/image/upload/v1774026342/various-wireless-devices-yellow-table-cup-coffee_phg30j.jpg);
+  background-size: cover;  /* ocupa toda la pantalla */
+  background-position: center; /* centrada */
+  background-repeat: no-repeat;/* no se repite */
+}
+
+body.contacto {
+  background-image: url(https://res.cloudinary.com/dclogxnep/image/upload/v1774274523/yellow-notepad-keyboard-cup-coffee_obwfou.jpg);
+  background-size: cover;  /* ocupa toda la pantalla */
+  background-position: center; /* centrada */
+  background-repeat: no-repeat;/* no se repite */
+}
+
+body.sobremi {
+background-image: url(https://res.cloudinary.com/dclogxnep/image/upload/v1774274521/overhead-view-keyboard-eyeglasses-tea-cup-yellow-workspace_k8sk9n.jpg);
+background-size: cover;  /* ocupa toda la pantalla */
+background-position: center; /* centrada */
+background-repeat: no-repeat;/* no se repite */
+}
+
+/*FOOTER - PIE DE PAGINA*/
+.pie-de-página {
+  display: flex; /* coloca elementos uno junto al otro */
+  flex-direction: column; /*columna con botones arriba y texto abajo*/
+  justify-content: center;  /* Centra horizontalmente */
+  align-items: center;  /* Centra verticalmente */
+  flex-wrap: wrap; /* Permite que los botones bajen si no caben en el móvil */
+  padding: 20px 10%;  /* Corregido */
+  gap: 10px; /* Espacio entre items*/
+  width: 100%; /* Asegura que ocupe todo el ancho para poder centrarlo */
+  font-family: "Roboto", sans-serif;  /*Tipografía*/
+  background-color: #1a1a1a; /*color de la caja*/
+  border-radius: 7px; /*para redondear las esquinas*/
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.12);  /*Para dar sombra*/
+  box-sizing: border-box; /* Importante para que el padding no ensanche la web */
+}
+
+.botones-pie {
+  display: flex; /*coloca los elementos uno junto al otro*/
+  gap: 20px; /*espacio entre items*/
+  flex-wrap: wrap; /*permite que los objetos bajen si no caben en el móvil*/
+  justify-content: center; /*cenra horizontalmente*/
+  }
+
+.pie-de-página a {
+  display: inline-block;  /*Colocar elementos uno al lado del otro, con control de tamaño */
+  text-decoration: none; /*para quitar subrayads o decoración ya establecida*/
+  color: rgb(37, 193, 221); /*color del texto*/
+  font-size: 14px; /*tamaño del texo*/
+  padding: 8px 18px; /*margenes*/
+  border: 1px solid rgb(37, 193, 221); /* Un pequeño recuadro para el logo */
+  border-radius: 7px; /*borde del cuadro*/
+  background-color: transparent; /*fondo de color transparente*/
+  transition: all 0.4s ease-in-out; /*tiempo de la animación*/
+}
+
+.pie-de-página a:hover {
+  color: #f9f9f9; /*color del texto*/
+  background-color: rgb(37, 193, 221); /*Cambia el color de fonde del boton a gris claro*/
+
+  transition: all 0.4s ease-in-out;  /* Velocidad para la animación */
+}
+
+.pie-de-página p {
+  color: #ffffff; /* Texto de copyright en blanco */
+  font-size: 14px; /*tamaño de la fuente*/
+}

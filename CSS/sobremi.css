@@ -1,0 +1,97 @@
+
+.hablo-sobre-mi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.hablo-sobre-mi img{
+  width:200px;
+  height: 200px;
+  border-radius: 70%;
+  overflow: hidden;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+}
+
+
+.mis-aficiones {
+  display: flex;  /* Coloca los elementos uno al lado del otro*/
+  flex-direction: row; /* Alinea los 3 bloques en horizontal */
+  justify-content: center;  /* Centra el grupo en la pantalla */
+  align-items: flex-start;  /* Alinea los bloques por su parte superior */
+  gap: 70px; /* Espacio entre cada bloque de afición */
+  padding: 30px 10%; /* Márgenes laterales para que el texto no toque los bordes, porcentaje para diseño responsivo */ 
+}
+.aficionesUNO, .aficionesDOS, .aficionesTRES {
+  display: flex;  /* Coloca los elementos uno al lado del otro*/
+  flex-direction: column;  /*Coloca los elementos uno sobre el otro*/
+  flex: 1;  /*Todas las columnas miden lo mismo*/
+  align-items: center; /*Centra verticalmente imagen y texto*/
+  max-width: 300px;  /* Evita que se estiren demasiado*/
+  text-align: justify;  /* Alinea el texto de forma justificada */
+}
+.aficiones img {
+  width: 180px;  /*Ancho*/
+  height: 180px;  /*Alto*/
+  object-fit: cover;  /*Evita que se deforme*/
+  border-radius: 50%;  /*Para hacer circulos*/
+  border: 5px solid #f9f9f9;  /*Color al borde, de mis colores*/
+  box-shadow: 0 4px 10px #1a1a1a;  /*Para dar sombra*/
+  margin-bottom: 20px;  /* Espacio posterior a la imagen, fijo entre la bola y su texto */
+}
+.aficiones p {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.menu-bolasformacion {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  padding: 20px;
+}
+.bolas-formacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.bolas-formacion img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 2px solid #ccc;
+}
+
+
+.menu-bolasaficiones {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  padding: 20px;
+}
+.bolas-aficiones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.bolas-aficiones img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 2px solid #ccc;
+}
