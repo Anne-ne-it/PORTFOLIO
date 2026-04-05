@@ -1,25 +1,44 @@
-/* Import Google Fonts - Roboto */
+/* Importa la fuente "Roboto" desde Google Fonts con distintos grosores (300–900) */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
+/* :root define variables globales accesibles en todo el documento */
 :root {
-  /* --- Colores principales --- */
-  --texto-principal: #1f2a33; /* texto oscuro legible */
-  --gris-oscuro: #4a4a4a;     /* textos secundarios */
-  --gris-medio: #9b9b9b;      /* detalles */
-  --gris-claro: #e0e0e0;      /* fondos suaves */
-  --blanco-humo: #f9f9f9;     /* fondo principal */
-  --amarillo: #FFCE1B; /*detalles*/
-  --azul: rgb(37, 193, 221); /*detalles*/
-  /* --- Extras --- */
-  --borde-suave: #cfe7f2;     /* bordes ligeros */
-  --sombra: rgba(0, 0, 0, 0.12); /* sombras suaves */
-   /* --- Variables de Tipografía Roboto --- */ 
-  --font-light: 300; 
-  --font-regular: 400; 
-  --font-medium: 500; 
-  --font-bold: 700; 
-  --font-black: 900; 
-  --font-main: 'Roboto', sans-serif;/*Fuente principal */ 
+
+  /*COLORES BASE*/
+  --color-text-primary: #000000; /* Color principal para textos (títulos, contenido importante) */
+  --color-text-secondary: #4a4a4a; /* Color para textos secundarios o menos destacados */
+  --color-text-muted: #9b9b9b; /* Color para textos suaves (placeholders, ayudas, estados desactivados) */
+  --color-bg-main: #f9f9f9; /* Color de fondo principal de la página */
+  --color-bg-soft: #e0e0e0; /* Fondo alternativo para secciones o tarjetas */
+  --color-accent-yellow: #ffce1b; /* Color llamativo (botones, highlights) */
+  --color-accent-blue: #25c1dd; /* Color llamativo dos (links, hover, elementos interactivos) */
+  --color-border: #cfe7f2; /* Color de bordes (inputs, cards, separadores) */
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.12); /* Sombra suave con desplazamiento vertical y difuminado */
+
+  /* TIPOGRAFÍA*/
+  --font-family-main: 'Roboto', sans-serif; /* Fuente principal aplicada a todo el sitio */
+  --font-weight-light: 300; /* Peso ligero de la fuente */
+  --font-weight-regular: 400; /* Peso normal de la fuente */
+  --font-weight-medium: 500; /* Peso medio para dar énfasis */
+  --font-weight-bold: 700; /* Peso alto para títulos o elementos destacados */
+  --font-weight-black: 900; /* Peso máximo para títulos muy llamativos */
+
+  /* ESPACIADO // PADDING*/
+  --space-xs: 4px; /* Espaciado muy pequeño */
+  --space-sm: 8px; /* Espaciado pequeño */
+  --space-md: 16px; /* Espaciado estándar más utilizado */
+  --space-lg: 32px; /* Espaciado grande entre bloques */
+  --space-xl: 64px; /* Espaciado muy grande para separar secciones principales */
+
+  /*BORDES*/
+  --radius-sm: 4px; /* Bordes ligeramente redondeados */
+  --radius-md: 8px; /* Bordes redondeados estándar */
+  --radius-lg: 16px; /* Bordes más redondeados (cards, modales, contenedores grandes) */
+
+  /* TRANSICIONES*/
+  --transition-fast: 0.2s ease-in-out; /* Transición rápida*/
+  --transition-normal: 0.3s ease-in-out; /* Transición estándar para animaciones suaves */
+  --transition-slow: 0.7s ease-in-out; /*Transición lenta para animaciones lentas*/
 }
 
 
@@ -28,38 +47,35 @@
   display: flex;  /*pone los elementos uno junto al otro*/
   justify-content: space-between; /* Empuja el logo a un lado y el ul al otro */
   align-items: center;  /* Los centra verticalmente */
-  flex-direction: row-reverse;   /* ¡MAGIA! Pone el logo a la derecha y el menú a la izquierda */
+  flex-direction: row;   /* logo a la izquierda y menu a la derecha */
   padding: 10px 5%; /* Menú estrecho */
-  background-color: #f9f9f9; /*color de fondo del menu*/
-  border-bottom: 1px solid #cfe7f2; /*color del borde de la caja del menu*/
-  border-radius: 4px; /*redondeo de las esquinas*/
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); /*sombreado de la caja menu*/
+  background-color: var(--color-bg-main); /*color de fondo*/  
+  border-bottom: 1px solid var(--color-border); /*color del borde de la caja del menu*/
+  border-radius: var(--radius-sm); /*redondeo de las esquinas*/
+  box-shadow: var(--shadow-soft); /*sombreado de la caja menu*/
   position: fixed; /* Para "anclarlo" a la pantalla */
   top: 0; /*para alinearla al borde superior*/
   width: 100%; /*ancho del tamaño maximo*/
   z-index: 1000; /*para que quede superpuesto al resto de elementos*/
+  font-family: var(--font-family-main); /*tipografía*/
 }
 
 .menu-navegacion ul {
   display: flex; /*pone los elementos uno junto al otro*/
-  list-style: none; /*quitar decoracion de la lista*/
   margin: 0; /*quitamos margenes*/
   padding: 0; /*quitamos margenes*/
   gap: 15px; /*distancia entre los items*/
 }
 
 .menu-navegacion li {
-  position: relative; /*para posicionar la linea respecto al texto*/
-  display: inline-block;  /*Colocar elementos uno al lado del otro, con control de tamaño */
-  color: #1f2a33;  /* Color del texto */
-  text-decoration: none;  /* Quita el subrayado azul */
-  padding: 4px 10px;  /* Crea el área clickeable */
-  font-family: "Roboto", sans-serif;  /*Tipografía*/
-  font-size: 20px;  /*Tamaño de fuente */
+  padding: var(--space-xs)  /* Crea el área clickeable */
 }
 
 .menu-navegacion li a {
   position: relative; /*para posicionar la linea respecto al texto*/
+  text-decoration: none; /*para quitar cualquier decoración por defecto*/
+  color: var(--color-text-primary); /*color del texot*/
+  font-size: 20px; /*tamaño del texto*/
 }
 
 .menu-navegacion li a::after {
@@ -69,8 +85,8 @@
   bottom: -4px; /* Aquí la SEPARACIÓN con el texto */
   width: 0;  /* Empieza sin ancho para que no se vea */
   height: 3px; /* Grosor de la línea */
-  background-color: #FFCE1B; /* color amarillo */
-  transition: width 0.5s ease-in-out; /* La animación */
+  background-color: var(--color-accent-yellow); /* color amarillo para la linea */
+  transition: width var(--transition-slow) /* La animación */
 }
 
 .menu-navegacion li a:hover::after {
@@ -79,118 +95,102 @@
 
 .logo {
   text-decoration: none; /*para quitar subrayads o decoración ya establecida*/
-  color: rgb(37, 193, 221); /*color del texto*/
-  font-family: "Roboto", sans-serif; /*tipografía*/
+  color: var(--color-accent-blue); /*color del texto*/
+  font-family: var(--font-family-main); /*tipografía*/
   font-size: 20px; /*tamaño del texo*/
-  font-weight: bold; /*para resaltar el texto tipo negrita*/
+  font-weight: var(--font-weight-bold); /*para resaltar el texto tipo negrita*/
   padding: 5px 10px; /*margenes*/
-  border: 2px solid rgb(37, 193, 221); /* Un pequeño recuadro para el logo */
-  border-radius: 4px; /*borde del cuadro*/
-  transition: all 0.5s ease; /*tiempo de la animación*/
+  border: 2px solid var(--color-accent-blue); /* Un pequeño recuadro para el logo */
+  border-radius: var(--radius-sm); /*borde del cuadro*/
+  transition: all var(--transition-normal) /*tiempo de la animación*/
 }
 
 .logo:hover {
-  background-color: rgb(37, 193, 221); /*color de fondo al pasar el raton*/
-  color: #f9f9f9; /*color del texto al pasar el raton*/
+  background-color: var(--color-accent-blue); /*color de fondo al pasar el raton*/
+  color: var(--color-bg-main); /*color del texto al pasar el raton*/
 }
 
 
-
-
-/*MENU DESPLEGABLE HAMBURGUESA*/
-#menu-desplegable-burger {
-  display: none !important;  /* Oculta el checkbox */
+/*MENU DESPLEGABLE HAMBURGUESA para pantallas pequeñas*/
+.abrirhamburguesa {
+  display: none; /*para ocultarlo, se activa en media*/
+  flex-direction: column; /*para poner los elementos uno sobre otro*/
+  gap: 5px; /*espacio entre los elementos*/
+  background: none; /*fondo*/
+  border: none; /*borde*/
+  cursor: pointer; /*convierte el curson en una mano*/
+  padding: var(--space-xs); /*espacio interior de la caja*/
 }
 
-/* Contenedor de las rayitas */
-.burger {
-  display: flex;  /* Pone los elementos uno al lado del otro */
-  flex-direction: column;  /* Pone los elementos uno sobre otro */
-  width: 40px;  /* Define el ancho horizontal del elemento */
-  gap: 3px; /* Espacio entre rayitas */
-  padding: 10px; /*espacio arriba y abajo del menu*/
+.abrirhamburguesa span {
+  width: 25px; /*ancho*/
+  height: 3px; /*alto*/
+  background-color: var(--color-accent-blue); /*color de fondo*/
+  color: var(--color-text-primary); /*color del texto*/
+  transition: all var(--transition-normal); /*efecto*/
 }
 
-/* Estilo de cada rayita */
-.burger span {
-  background-color: black; /* Color de la linea usando mis variables de grises */
-  height: 4px;  /* Determina el grosor (altura) de cada una de las tres rayitas */
-  width: 100%;  /* Hace que la rayita ocupe todo el ancho disponible del contenedor padre */
-  border-radius: 10px;  /* Redondea los extremos de las rayitas para que no se vean como rectángulos secos */
-  transition: all 0.3s ease; /* Para que sea suave*/
-  transform-origin: left; /*para que empiece desde la izquierda*/
+.linksburger {
+  display: none; /* Escondido por defecto */
+  flex-direction: column; /*pone los elementos uno sobre el otro*/
+  position: absolute; /*pone el elemento en el centro del contenedor*/
+  top: 60px; /*distancia con la parte superior*/
+  left: 0; /*distancia parte izquierda*/
+  width: 100%; /*ocupa el total de su tamaño*/
+  background-color: var(--color-bg-main); /*color de fondo*/
+  padding: var(--space-md); /*espacio interior de la caja*/
+  box-shadow: var(--shadow-soft); /*sombra de la caja*/
 }
 
-/*ocultar el menu burger*/
-.links-burger {
-  display: none; /*se oculta por defecto*/
-  flex-direction: column; /*pone los elementos uno sobre otro*/
-  background-color: #f9f9f9; /*color del fondo*/
-  position: absolute; /*para separar las lineas del texto*/
-  top: 70px; /*distancia arriba*/
-  left: 20px; /*distancia abajo*/
-  border: 1px solid #cfe7f2; /*linea borde caja*/
-  border-radius: 7px; /*radio de redondeo*/
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); /*sombra de la caja*/
-  padding: 10px; /*distancia arriba y abajo*/
-  z-index: 100; /* Para que flote sobre el contenido */
-}
-
-.links-burger a {
-  text-decoration: none; /*quita las ajustes por defecto de los links*/
-  color: #1f2a33; /*color del texto*/
-  padding: 10px 20px; /*distancia arriba y abajo*/
-  font-family: "Roboto", sans-serif; /*tipografía*/
-  font-size: 14px; /*tamaño fuente*/
-}
-
-.links-burger a:hover {
-  background-color: #e0e0e0; /*color de fondo*/
-}
-
-/*EL TRUCO, cuando el checkbox está marcado, muestra el menú*/
-#menu-desplegable-burger:checked ~ .menu-links {
-  display: flex !important; /* El !important ayuda a descartar otros errores de prioridad */
-}
-
+  #menu-desplegable-burger:checked ~ .links-burger {
+      display: flex; /*el truco del checkbox: Si está marcado, muestra el menú */
+  }
 
 
 /*FONDOS DE PANTALLA*/
-body.home {
+body{
+  background-image: url(https://res.cloudinary.com/dclogxnep/image/upload/v1775156027/nice-computer-keyboard-white_kz0xhc.jpg);
+  background-size: cover; /*ocupa toda la pantalla*/
+  background-position: center; /*centrada */
+  background-repeat: no-repeat; /*no se repite*/
+}
+/*body.home {
   background-image: url(https://res.cloudinary.com/dclogxnep/image/upload/v1774026342/various-wireless-devices-yellow-table-cup-coffee_phg30j.jpg);
-  background-size: cover;  /* ocupa toda la pantalla */
-  background-position: center; /* centrada */
-  background-repeat: no-repeat;/* no se repite */
+  background-size: cover;   ocupa toda la pantalla
+  background-position: center; centrada 
+  background-repeat: no-repeat; no se repite 
 }
 
 body.contacto {
   background-image: url(https://res.cloudinary.com/dclogxnep/image/upload/v1774274523/yellow-notepad-keyboard-cup-coffee_obwfou.jpg);
-  background-size: cover;  /* ocupa toda la pantalla */
-  background-position: center; /* centrada */
-  background-repeat: no-repeat;/* no se repite */
+  background-size: cover;   ocupa toda la pantalla
+  background-position: center;  centrada
+  background-repeat: no-repeat; no se repite 
 }
 
 body.sobremi {
-background-image: url(https://res.cloudinary.com/dclogxnep/image/upload/v1774274521/overhead-view-keyboard-eyeglasses-tea-cup-yellow-workspace_k8sk9n.jpg);
-background-size: cover;  /* ocupa toda la pantalla */
-background-position: center; /* centrada */
-background-repeat: no-repeat;/* no se repite */
-}
+  background-image: url(https://res.cloudinary.com/dclogxnep/image/upload/v1774274521/overhead-view-keyboard-eyeglasses-tea-cup-yellow-workspace_k8sk9n.jpg);
+  background-size: cover;   ocupa toda la pantalla
+  background-position: center;  centrada
+  background-repeat: no-repeat; no se repite
+}*/
+
 
 /*FOOTER - PIE DE PAGINA*/
-.pie-de-página {
+.pie-de-pagina {
   display: flex; /* coloca elementos uno junto al otro */
   flex-direction: column; /*columna con botones arriba y texto abajo*/
   justify-content: center;  /* Centra horizontalmente */
   align-items: center;  /* Centra verticalmente */
   flex-wrap: wrap; /* Permite que los botones bajen si no caben en el móvil */
-  padding: 20px 10%;  /* Corregido */
-  gap: 10px; /* Espacio entre items*/
+  padding: var(--space-lg) 5%; /* Menú estrecho */
+  gap: var(--space-md); /* Espacio entre items*/
   width: 100%; /* Asegura que ocupe todo el ancho para poder centrarlo */
-  font-family: "Roboto", sans-serif;  /*Tipografía*/
-  background-color: #1a1a1a; /*color de la caja*/
-  border-radius: 7px; /*para redondear las esquinas*/
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.12);  /*Para dar sombra*/
+  font-family: var(--font-family-main);  /*Tipografía*/
+  background-color:var(--color-text-primary); /*color de la caja*/
+  border-top-left-radius: var(--radius-md); /*redondea la esquina superior izquierda*/
+  border-top-right-radius: var(--radius-md); /*redonde la esquina superior derecha*/
+  box-shadow: var(--shadow-soft);  /*Para dar sombra*/
   box-sizing: border-box; /* Importante para que el padding no ensanche la web */
 }
 
@@ -201,26 +201,609 @@ background-repeat: no-repeat;/* no se repite */
   justify-content: center; /*cenra horizontalmente*/
   }
 
-.pie-de-página a {
+.pie-de-pagina a {
   display: inline-block;  /*Colocar elementos uno al lado del otro, con control de tamaño */
   text-decoration: none; /*para quitar subrayads o decoración ya establecida*/
-  color: rgb(37, 193, 221); /*color del texto*/
+  color: var(--color-accent-blue); /*color del texto*/
   font-size: 14px; /*tamaño del texo*/
   padding: 8px 18px; /*margenes*/
-  border: 1px solid rgb(37, 193, 221); /* Un pequeño recuadro para el logo */
+  border: 1px solid var(--color-accent-blue); /* Un pequeño recuadro para el logo */
   border-radius: 7px; /*borde del cuadro*/
   background-color: transparent; /*fondo de color transparente*/
-  transition: all 0.4s ease-in-out; /*tiempo de la animación*/
+  transition: all var(--transition-normal);  /* Velocidad para la animación */
 }
 
-.pie-de-página a:hover {
-  color: #f9f9f9; /*color del texto*/
-  background-color: rgb(37, 193, 221); /*Cambia el color de fonde del boton a gris claro*/
-
-  transition: all 0.4s ease-in-out;  /* Velocidad para la animación */
+.pie-de-pagina a:hover {
+  color: var(--color-bg-main); /*color del texto*/
+  transform: translateY(-4px); /*para que suba*/
+  background-color: var(--color-accent-blue); /*Cambia el color de fonde del boton a gris claro*/
 }
 
-.pie-de-página p {
-  color: #ffffff; /* Texto de copyright en blanco */
-  font-size: 14px; /*tamaño de la fuente*/
+.pie-de-pagina p {
+  color: var(--color-bg-main); /* Texto de copyright en blanco */
+  font-size: 16px; /*tamaño de la fuente*/
+}
+
+.corazon {
+  display: inline-block; /*alinea los elementos uno junto al otro*/
+  animation: latido 1.5s infinite; /*la animacion no se detiene*/
+  color: red; /*color del corazon*/
+}
+
+@keyframes latido {
+  0%   { transform: scale(1); } /*inicio*/
+  14%  { transform: scale(1.3); } /*crece*/
+  28%  { transform: scale(1.5); } /*se contrae*/
+  42%  { transform: scale(1.5); } /*crece*/
+  70%  { transform: scale(1.3); } /*se contrae*/
+  100% { transform: scale(1); } /*crece*/
+}
+
+
+/*INDEX - HOME*/
+.contenedor-home {
+  display: flex; /*pone las sections una junto a la otra*/
+  flex-direction: column; /*una seccion sobre la otra*/
+  min-height: 100vh; /*ocupa todo el alto de la pagina*/
+  width: 100%; /*ocupa todo el ancho de su caja*/
+  justify-content: center; /* centra las secciones verticalmente*/
+  margin: 70px auto; /*margen*/
+}
+
+.cabecera {
+  display: flex;  /* Coloca los elementos uno al lado del otro */
+  align-items: center;  /* Centra todo horizontalmente */
+  justify-content: center;  /* Centra todo verticalmente */
+  text-align: left; /*alinea el texto*/
+  min-height: 100%;  /* Ocupa todo el alto de la pantalla */
+  gap: var(--space-md);/* Espaciado igual entre elementos */
+  padding: var(--space-xl);  /* Márgenes laterales para que el texto no toque los bordes, porcentaje para diseño responsivo */
+}
+
+.cabecera img {
+  max-width: 100%; /*ancho maximo*/
+  width: min(400px, 90%); /*ancho*/
+  height: 400px; /*alto*/
+  object-fit: cover;  /* La imagen no se deforma */
+  border-radius: 50%; /*esquinas redondeadas*/
+  box-shadow: var(--shadow-soft); /*sombra suabre*/
+}
+
+.texto-cabecera {
+  display: flex; /*pone un objeto junto al otro*/
+  flex-direction: column; /*pone un objeto bajo el otro*/
+  gap: 20px; /*distancia entre elememtos*/
+}
+
+.cabecera h1 {
+  text-align: left;  /* Centra el texto de los títulos y párrafos */
+  font-family: var(--font-family-main);  /*Tipografía*/
+  font-size: 60px; /*tamaño de fuente*/
+  color: var(--color-accent-blue);  /*Color del texto con mis colores*/
+}
+
+.cabecera h2 {
+  font-family: var(--font-family-main);  /*Tipografía*/
+  font-size: 50px; /*tamaño de fuente*/
+  color: var(--color-accent-yellow);  /* Color del texto con mis colores*/
+}
+
+.cabecera p {
+  font-family: var(--font-family-main);  /*Tipografía*/
+  text-align: justify; /*justifica el texto*/
+  color: var(--color-text-primary);  /*color de la topografia*/
+  max-width: 700px;  /*Limita el ancho del texto para una mejor lectura*/
+  line-height: normal;  /*Define el espacio entre lineas*/
+  font-size: 18px; /*tamaño de la fuente*/
+  margin: 0;  /*Para "resetear" el margen preestablecido que puede haber*/
+}
+
+
+/*MIS AFICIONES*/
+.aficiones{
+  display: flex; /*coloca un elemento junto al otro*/
+  flex-direction: column; /*coloca un elemento sobre otro*/
+  align-items: flex-start; /* Centra el título y el bloque de cajas  a la izquierda*/
+  padding: var(--space-xl); /*espacio con la caja*/
+  gap: var(--space-lg); /*distancia entre elementos*/
+}
+
+.mis-aficiones {
+  display: flex;  /* Coloca los elementos uno al lado del otro*/
+  flex-direction: column; /* Alinea los 3 bloques en vertical */
+  justify-content: center;  /* Centra el grupo en la pantalla */
+  align-items: flex-start;  /* Alinea los bloques por su parte izquierda */
+  gap: 70px; /* Espacio entre cada bloque de afición */
+  padding: 30px 10%; /* Márgenes laterales para que el texto no toque los bordes, porcentaje para diseño responsivo */ 
+}
+
+.aficionesUNO, .aficionesDOS, .aficionesTRES {
+  display: flex;  /* Coloca los elementos uno al lado del otro*/
+  flex-direction: column;  /*Coloca los elementos uno sobre el otro*/
+  flex: 1;  /*Todas las columnas miden lo mismo*/
+  align-items: flex-start; /*Centra a la izquierda el texto*/
+  max-width: 700px; /*ancho maximo*/
+  text-align: justify;  /* Alinea el texto de forma justificada */
+}
+
+.aficiones h3 {
+  font-family: var(--font-family-main); /*tipografía*/
+  font-size: 40px; /*tamaño de la fuente*/
+  color: var(--color-text-primary); /*color del texto*/
+  margin-bottom: var(--space-md); /*distancia con el objeto de abajo*/
+  width: fit-content; /*la linea mide lo que mide el texto*/
+  border-bottom: 4px solid var(--color-accent-yellow); /*color de la linea*/
+  padding-bottom: var(--space-xs); /*disncia abajo*/
+}
+
+.aficiones p {
+  font-family: var(--font-family-main);/*tipografia*/
+  text-align: justify; /*texto justificado*/
+  line-height: 1.6; /*espacio entre lineas*/
+  color: var(--color-text-primary); /*color del texto*/
+  margin: 0px; /*margen*/
+}
+
+
+/*FORMULARIO DE CONTACTO*/
+.formulario-contacto {
+  display: flex; /*coloca los elementos uno al lado de otro*/
+  flex-direction: column; /*para colocar un elemento sobre otro*/
+  align-items: center; /*centra los hijos horizontalmente*/
+  justify-content: center;
+  margin: 70px auto; /*centrado horizontal*/
+  padding: var(--space-xl); /*separación entre elementos*/
+  background-color: white; /*color de fondo de la caja*/
+  border-radius: var(--space-md); /*redondeo de las esquinas de la caja*/
+  box-shadow: var(--shadow-soft); /*sombra de la caja*/
+  max-width: 900px; /* Una caja donde contacto se ve mejor */
+  width: 90%;  /* Para que en móviles no toque los bordes del teléfono */
+  font-family: var(--font-family-main); /*tipografia*/
+}
+
+.container-datos {
+  padding: var(--space-md); /*separación entre elementos*/
+  width: 90%; /*para que en móviles no toque los bordes del teléfono*/
+  }
+
+.formulario-contacto h1{
+  font-size: 60px; /*tamaño de la fuente*/
+  color: var(--color-text-secondary); /*color del texto*/
+  margin-bottom: var(--space-xl); /*distancia con el objeto de abajo*/
+  width: fit-content; /*la linea mide lo que mide el texto*/
+  border-bottom: 4px solid var(--color-accent-yellow); /*color de la linea*/
+}
+
+.formulario-contacto p {
+  color: var(--color-text-primary); /*color del texto*/
+}
+
+label {
+  display: block; /*para ocupar todo el ancho posible*/
+  margin-bottom: 8px; /*margen inferior entre elementos*/
+  font-family: var(--font-family-main); /*tipografía*/
+  color: var(--color-text-primary); /*color del texto*/
+  font-weight:var(--font-weight-bold); /*para que este en negrita*/
+}
+
+input, textarea {
+width: 100%; /*ancho*/
+padding: var(--space-md); /*distancia entre elementos*/
+margin-bottom: 20px; /*distancia con la parte de abajo*/
+border: 1px solid var(--color-text-primary); /*color del borde de caja*/
+border-radius: var(--radius-md); /*redondear las esquinas*/
+font-family: var(--font-family-main); /*tipografía*/
+box-sizing: border-box; /*evita que input y textarea se salgan de la caja*/
+transition: var(--transition-normal); /*efecto para cuando escribe el usuario escribir*/
+}
+
+/*EFECTO PARA CUANDO EL USUARIO VA A ESCRIBIR*/
+input:focus, textarea:focus {
+  outline: none; /*para quitar efectos prestablecidos de navegadores*/
+  border-color: var(--color-text-primary); /*color del borde de baja*/
+  box-shadow: var(--shadow-soft); /*color de la sobra*/
+}
+textarea {
+  resize: vertical; /* Permite estirar hacia abajo pero no hacia los lados */
+}
+
+.boton-submit {
+  display: inline-block; /*coloca elementos uno al lado del otro, con control de tamaño*/
+  text-decoration: none; /*para quitar decoracion prestablecida*/
+  padding: var(--space-md); /*espacio del texto con la caja*/
+  gap: 17px; /* Espacio entre items*/
+  color: green; /*color del texto*/
+  border-radius: 7px; /*para redondear las esquinas*/
+  background-color: transparent; /*fondo transparente*/
+  transition: var(--transition-slow); /*tiempo del efecto*/
+}
+
+.boton-submit:hover {
+  color: var(--color-bg-main); /*color del texto*/
+  transform: translateY(-4px); /*para que suba*/
+  background-color: var(--color-text-primary); /* Cambia a tu color oscuro al pasar el ratón */
+}
+
+.boton-reset {
+  display: inline-block; /*coloca elementos uno al lado del otro, con control de tamaño*/
+  text-decoration: none; /*para quitar decoracion prestablecida*/
+  padding: var(--space-md); /*espacio del texto con la caja*/
+  gap: 17px; /* Espacio entre items*/
+  color: red; /*color del texto*/
+  border-radius: 7px; /*para redondear las esquinas*/
+  background-color: transparent; /*fondo transparente*/
+  transition: var(--transition-slow); /*tiempo de la transicion*/
+}
+
+.boton-reset:hover {
+  color: var(--color-bg-main); /*color del texto*/
+  transform: translateY(-4px); /*para que suba*/
+  background-color: var(--color-text-primary); /* Cambia a tu color oscuro al pasar el ratón */
+}
+
+
+/*ABOUT / PRESENTACION SOBRE MI */
+.contenedor-about{
+  display: flex; /*pone un elemento junto al otro*/
+  flex-direction: column; /*pone un elemento sobre otro*/
+  align-items: center; /*alinea los elementos en el centro*/
+  margin: 70px auto; /*margen superior*/
+}
+
+.aboutseccion h1{
+  font-size: 40px; /*tamaño del tituo*/
+  font-weight: var(--font-weight-bold); /*para resaltarlo como negrita*/
+  color: var(--color-text-primary); /*color del texto*/
+  margin-bottom: var(--space-sm); /*separa un elemento de el de abajo suyo*/
+  padding-bottom: var(--space-xs); /*distancia parte inferior*/
+  border-bottom: 4px solid var(--color-accent-blue); /*para la linea que lo subraya*/
+  width: fit-content; /*la linea mide lo mismo que el texto de arriba*/
+  text-align: left; /*alinea el texto a la izquierda*/
+}
+
+.about-intro {
+  color: var(--color-text-secondary); /*color del texto*/
+  margin-bottom: var(--space-xl); /*espacio posterior*/
+  text-align: left; /*alinea el texto a la izquierda*/
+  font-size: 27px; /*tamaño*/
+  font-weight: var(--font-regular); /*grosor de la letra*/
+}
+
+.aboutbiografia {
+  display: flex; /*pone un elemento junto al otro*/
+  gap: var(--space-xl); /*espacio entre elementos*/
+  margin-bottom: var(--space-xl); /*espacio posterior*/
+  width: 100%; /*ocupa en ancho maximo*/
+}
+
+.aboutfoto {
+  flex: 0 0 350px;
+  background-color: var(--color-bg-main); /*color de fondo*/
+  padding: var(--space-md); /*espacio con la caja*/
+  padding-bottom: var(--space-xl); /*espacio posterior*/
+  box-shadow: var(--shadow-soft); /*sombreado de la caja*/
+  border-radius: var(--radius-sm); /*redondeo de esquinas*/
+  transform: rotate(-2deg); /*rota la caja de la polaroid*/
+}
+
+.aboutfoto img {
+  object-fit: cover;  /* La imagen no se deforma */
+  display: block; /*convierte el elemento en un bloque*/
+  width: 100%; /*ocupa todo el ancho disponible*/
+  aspect-ratio: 1 / 1; /*para hacerla cuadrada*/
+  padding-bottom: var(--space-lg); /*espacio con el objeto de abajo*/
+}
+
+.polaroidfoto {
+  margin: 0; /*distancia con el margen*/
+  margin-top: var(--space-sm); /*margen inferior*/
+  text-align: center; /*alinea el texto al centro*/
+  font-size: 60px; /*tamaño del texto*/
+  font-weight: var(--font-weight-black); /*efecto negrita*/
+  background: linear-gradient(135deg, #ffec3d 0%, #ffae06 50%, #e67e22 100%); /*color de fondo degradado*/
+  -webkit-text-fill-color: transparent; /*pone el texto en transparente para que se vea el degradado */
+  -webkit-background-clip: text; /*para pintar solo el texto*/
+  background-clip: text; /*esto sería la tijera*/
+  letter-spacing: 8px; /*espacio entre las letras*/
+  text-transform: uppercase; /*pone todo el texto en mayusculas*/
+  border-top: 4px solid var(--color-accent-yellow); /*liea superior*/
+  border-bottom: 4px solid var(--color-accent-yellow); /*linea inferior*/
+}
+
+.aboutpresentacion {
+  display: flex; /*pone un objeto junto al otro*/
+  flex-direction: column; /*pone un objeto sobre el otro*/
+  flex: 1; /*ocupa todo el espacio del contenedor*/
+  gap: var(--space-md); /*espacio entre elementos*/
+  text-align: justify; /*alinea el texo justificado*/
+}
+
+.aboutpresentacion h2 {
+  font-size: 40px; /*tamaño*/
+  font-weight: var(--font-weight-black); /*grosor*/
+  color: var(--color-text-primary); /*color*/
+  margin: 0; /*distancia con el margen*/
+}
+
+.aboutpresentacion h3 {
+  font-size: 30px; /*tamaño*/
+  font-weight: var(--font-regular); /*grosor*/
+  color: var(--color-accent-blue); /*color*/
+  margin: 0; /*distancia con el margen*/
+}
+
+.aboutpresentacion p{
+  font-size: 16px; /*tamaño*/
+  color: var(--color-text-secondary); /*color*/
+  line-height: 1.7; /*espacio entre lineas*/
+}
+
+.aboutbotones {
+  display: flex; /*pone un elemento junto al otro*/
+  gap: var(--space-md); /*espacio etre los elementos*/
+  margin-top: var(--space-sm); /*espacio posterior*/
+}
+.aboutbotones a {
+  display: inline-block;  /*Colocar elementos uno al lado del otro, con control de tamaño */
+  color: var(--color-accent-blue); /*color del texto*/
+  font-size: 14px; /*tamaño del texo*/
+  padding: 8px 18px; /*margenes*/
+  border: 1px solid var(--color-accent-blue); /* Un pequeño recuadro para el logo */
+  border-radius: 7px; /*borde del cuadro*/
+  background-color: transparent; /*fondo de color transparente*/
+  transition: all var(--transition-normal);  /* Velocidad para la animación */
+}
+
+.aboutbotones a:hover{
+  color: var(--color-bg-main); /*color del texto*/
+  transform: translateY(-4px); /*para que suba*/
+  background-color: var(--color-accent-blue); /*Cambia el color de fonde del boton a gris claro*/
+  transition: all var(--transition-normal);  /* Velocidad para la animación */
+}
+
+
+/*ESTUDIOS Y PRACTICAS*/
+.educacionseccion, .experienciaCV {
+  width: 100%; /*ocupa el maximo de ancho*/
+  max-width: 1200px; /*que sea el mismo para todos */
+  margin: 0 auto; /*distancia con el margen*/
+  display: flex; /*pone un elemento junto otro*/
+  flex-direction: column; /*pone un elemento sobre otro*/
+}
+
+.educacionlista, .practicaslista, .experiencialista{
+ display: flex; /*pone un elemento junto al otro*/
+ flex-direction: column; /*pone un elemento sobre otro*/
+ gap: var(--space-lg); /*distancia entre los elemento*/
+ padding: 0; /*distancia con el interior de la caja*/
+ margin:  0; /*distancia con el margen*/
+ width: 100%; /* Asegura que la lista ocupe todo el ancho disponible */
+ align-items: stretch; /*estira todos los hijos*/
+}
+
+.educacionarticle h2, .practicasarticle h2, .experienciaCV h2{
+  font-size: 40px; /*tamaño*/
+  font-weight: var(--font-weight-bold); /*grosor*/
+  color: var(--color-text-primary); /*color*/
+  margin-top: var(--space-xl); /*espacio desde el borde superior*/
+  margin-bottom: var(--space-lg); /*margen posterior*/
+  border-bottom: 4px solid var(--color-accent-yellow); /*linea*/
+  width: fit-content; /* la línea medirá lo que mida el texto */
+}
+
+.educaciongrado, .practicasgrado, .experienciatrabajo{
+  display: flex; /*pone un elemento junto al otro*/
+  flex-direction: column; /*pone un elemento sobre otro*/
+  align-self: stretch; /*obliga a la caja individual a llenar el ancho del padre*/
+  width: 100%; /*ocupa todo el espacio */
+  background-color: var(--color-bg-main); /*color del fondo*/
+  border-radius: var(--radius-md); /*redondear las esquinas*/
+  border-left: 4px solid var(--color-accent-blue); /*borde de color solo en la izquierda*/
+  padding: var(--space-lg); /*espacio de los elementos con la caja*/
+  box-sizing: border-box; /* Muy importante para que el padding no rompa el ancho */
+}
+
+.educacionlista span, .practicaslista span, .experiencialista span{
+  color: var(--color-accent-blue); /*color del texto*/
+}
+
+.educacionlista h4, .practicaslista h4, .experiencialista h4{
+  font-size: 20px; /*tamaño*/
+  font-weight: var(--font-weight-bold); /*grosor*/
+  color: var(--color-text-primary); /*color*/
+  margin-bottom: var(--space-xs); /*margen inferior*/
+}
+
+.educacionfecha, .practicasfecha, .experienciafecha {
+  font-size: 14px; /*tamaño*/
+  color: var(--color-text-secondary); /*color*/
+  font-weight: var(--font-weight-medium); /*grosor*/
+  margin-bottom: var(--space-sm); /*margen inferior*/
+}
+
+.educaciongrado ul li, .practicasgrado ul li, .experienciatrabajo ul li{
+  color: var(--color-text-secondary); /*color*/
+  margin: var(--spacing-xs) 0; /*margen*/
+  line-height: 1.6; /*espacio entre lineas*/
+  list-style: disc; /*decoracion de la lista*/
+}
+
+
+
+
+
+
+
+/* --- SECCIÓN RESPONSIVE (MEDIA QUERIES) --- */
+/* --- CONFIGURACIÓN DEL MENÚ RESPONSIVE --- */
+@media (max-width: 768px) {
+  /* Mostramos el botón de hamburguesa que estaba oculto */
+  .hamburgesa {
+    display: flex; /* Se vuelve visible en móviles */
+    z-index: 1001; /* Por encima de todo */
+  }
+
+  /* Estilo del menú desplegable (la lista ul) */
+  .links-hamburgesa {
+    display: none; /* Escondido por defecto */
+    flex-direction: column; /* Enlaces uno sobre otro */
+    position: absolute; /* Se posiciona respecto al nav */
+    top: 100%; /* Aparece justo debajo de la barra de navegación */
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    background-color: var(--color-bg-main); /* Fondo de la lista */
+    padding: var(--space-md) 0; /* Espacio arriba y abajo */
+    box-shadow: var(--shadow-soft); /* Sombra para dar profundidad */
+    border-top: 1px solid var(--color-border); /* Línea divisoria */
+    text-align: center; /* Centra los textos de los enlaces */
+  }
+
+  /* EL TRUCO MÁGICO: Cuando el checkbox está marcado, muestra el menú */
+  #menu-desplegable-burger:checked ~ .linksburger {
+    display: flex; /* Cambia de none a flex para mostrarse */
+    animation: slideDown 0.3s ease-out; /* Animación de entrada */
+  }
+
+  /* Estilo de los enlaces dentro del menú móvil */
+  .links-hamburgesa li {
+    padding: var(--space-md); /* Área de clic más grande para dedos */
+    width: 100%; /* Que el li ocupe todo el ancho */
+  }
+
+  .links-hamburgesa li a {
+    font-size: 22px; /* Letra un poco más grande para facilitar el toque */
+    display: block; /* Hace que todo el ancho sea clickeable */
+  }
+}
+
+/* Animación para que el menú no aparezca de golpe */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px); /* Empieza un poco más arriba */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Termina en su posición original */
+  }
+}
+
+/* Se activa cuando la pantalla mide 768px o menos (Tablets y Móviles) */
+@media (max-width: 768px) {
+  
+  /* 1. AJUSTES GENERALES Y CABECERA (HOME) */
+  .cabecera {
+    flex-direction: column; /* Apila la imagen sobre el texto verticalmente */
+    text-align: center; /* Centra el alineamiento del texto base */
+    padding: var(--space-lg) var(--space-md); /* Reduce el espacio interno para que quepa en la pantalla */
+    margin-top: 80px; /* Evita que el menú fijo (fixed) tape el inicio del contenido */
+  }
+
+  .cabecera img {
+    width: 250px; /* Reduce el ancho de la imagen para que no ocupe toda la pantalla */
+    height: 250px; /* Mantiene la proporción para que siga siendo un círculo perfecto */
+  }
+
+  .texto-cabecera {
+    align-items: center; /* Centra horizontalmente los elementos hijos dentro del flex column */
+  }
+
+  .cabecera h1 {
+    font-size: 35px; /* Reduce el tamaño del nombre para que no se corte en los bordes */
+    text-align: center; /* Asegura que el título principal esté centrado */
+  }
+
+  .cabecera h2 {
+    font-size: 28px; /* Ajusta el tamaño del subtítulo profesional */
+    text-align: center; /* Asegura el centrado visual */
+  }
+
+  .cabecera p {
+    text-align: center; /* Cambia de 'justify' a 'center' para evitar huecos blancos raros entre palabras */
+    font-size: 16px; /* Ajusta el tamaño de lectura para pantallas pequeñas */
+  }
+
+  /* 2. SECCIÓN SOBRE MÍ (ABOUT) */
+  .aboutbiografia {
+    flex-direction: column; /* Pone la foto tipo Polaroid arriba y el texto debajo */
+    align-items: center; /* Centra ambos elementos en el eje horizontal */
+  }
+
+  .aboutfoto {
+    flex: 0 0 auto; /* Cancela el tamaño fijo lateral que tenía en escritorio */
+    width: 90%; /* Hace que la foto sea casi tan ancha como el móvil */
+    max-width: 300px; /* Pero le pone un tope para que no se vea gigante */
+    transform: rotate(0deg); /* Quita la rotación inclinada para ganar espacio limpio en los lados */
+    margin-bottom: var(--space-lg); /* Añade separación con el texto que ahora está debajo */
+  }
+
+  .polaroidfoto {
+    font-size: 40px; /* Reduce el tamaño del nombre 'NEMO' en la base de la foto */
+  }
+
+  .aboutpresentacion {
+    text-align: center; /* Centra el texto de la biografía */
+  }
+
+  .aboutbotones {
+    justify-content: center; /* Centra los botones de redes sociales */
+    flex-wrap: wrap; /* Si son muchos botones, permite que bajen a una segunda línea */
+  }
+
+  /* 3. AFICIONES */
+  .mis-aficiones {
+    padding: 20px 5%; /* Ajusta los márgenes laterales para aprovechar el ancho del móvil */
+    gap: 40px; /* Reduce el espacio vertical entre los bloques de aficiones */
+  }
+
+  .aficiones h3 {
+    font-size: 30px; /* Reduce el tamaño del título de la afición */
+    margin: 0 auto var(--space-md) auto; /* Centra el título y su línea amarilla inferior automáticamente */
+  }
+
+  .aficiones p {
+    text-align: center; /* Centra la descripción de las aficiones */
+  }
+
+  /* 4. FORMULARIO */
+  .formulario-contacto h1 {
+    font-size: 35px; /* Ajusta el título 'Contacto' al tamaño del móvil */
+    text-align: center; /* Centra el título del formulario */
+  }
+
+  .container-datos {
+    width: 100%; /* El contenedor interno del formulario ocupa todo el ancho disponible */
+    padding: 0; /* Quita paddings extra para no apretar los inputs */
+  }
+
+  /* 5. EDUCACIÓN Y EXPERIENCIA */
+  .educacionarticle h2, 
+  .practicasarticle h2, 
+  .experienciaCV h2 {
+    font-size: 30px; /* Reduce los títulos de las secciones de currículum */
+    margin-left: auto; /* Truco para centrar el bloque del título... */
+    margin-right: auto; /* ...junto con su subrayado amarillo */
+  }
+
+  .educaciongrado, 
+  .practicasgrado, 
+  .experienciatrabajo {
+    padding: var(--space-md); /* Reduce el espacio interno de las tarjetas blancas */
+  }
+}
+
+/* Ajuste extra para móviles muy estrechos*/
+@media (max-width: 480px) {
+  .menu-navegacion {
+    padding: 10px 15px; /* Reduce el espacio en la barra de navegación */
+  }
+  
+  .logo {
+    font-size: 16px; /* Hace el logo un poco más pequeño para que no choque con el botón hamburguesa */
+  }
+
+  .pie-de-pagina p {
+    font-size: 14px; /* Ajusta el texto del copyright */
+    text-align: center; /* Centra el texto del footer */
+  }
 }
